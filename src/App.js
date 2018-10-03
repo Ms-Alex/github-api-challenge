@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import githubUsersAdapter from './githubUsersAdapter';
 import SearchForm from './components/SearchForm';
 import InfoCard from './components/InfoCard';
+
+const usersAdapter = githubUsersAdapter();
 
 class App extends Component {
 
@@ -12,11 +14,9 @@ class App extends Component {
   }
 
   fetchUser = (username) => {
-    fetch(`https://api.github.com/users/${username}`)
-      .then(res => res.json())
-      .then(data => this.setState({
-        userInfo: data
-      }) )
+    usersAdapter.getUserInfo(username).then(data => this.setState({
+      userInfo: data
+    }))
   }
 
   renderView = () => {
