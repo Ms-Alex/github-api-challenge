@@ -1,4 +1,4 @@
-# GitHub API Ch
+# GitHub API Challenge
 > This app hits the Github Public API, to retrieve public information on a user.
 
 An app that takes an input of a github username, and displays public information about the user; such as name, email, company, etc.
