@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 
 class SearchForm extends Component {
-    
+    // state for form
     state = {
         username: '',
     }
 
+    // have a controlled input
     handleChange = (event) => {
         this.setState({
             username: event.target.value.toLowerCase(),
         });
     }
 
+    // handle submit button once clicked
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.fetchUser(this.state.username);

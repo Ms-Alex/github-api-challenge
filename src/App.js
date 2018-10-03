@@ -8,20 +8,20 @@ import InfoCard from './components/InfoCard';
 const usersAdapter = githubUsersAdapter();
 
 class App extends Component {
-
+  // state for app
   state = {
     userInfo: '',
   }
 
+  // get user information from created github adapter
   fetchUser = (username) => {
     usersAdapter.getUserInfo(username).then(data => this.setState({
       userInfo: data
     }))
   }
 
+  // based on what the state.userInfo returns, render a certain view below the search form
   renderView = () => {
-    // console.log(this.state.userInfo);
-
     if(this.state.userInfo === '') return "No searches done, yet."
     if(this.state.userInfo.message === 'Not Found') return "* No user found with that username. Try again. *"
     return <InfoCard user={this.state.userInfo} />
